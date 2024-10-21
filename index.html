@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./style.css"></script>
+  </head>
+  <body>
+    <h1>Лінійне завантаження зображень</h1>
+
+    <p>
+      Прокрутіть вниз, щоб побачити зображення, які завантажуються тільки тоді,
+      коли вони стають видимими.
+    </p>
+
+    <div class="image-container">
+      <img data-src="img-1.jpg" alt="Image-1" />
+      <img data-src="img-2.jpg" alt="Image-2" />
+      <img data-src="img-3.jpg" alt="Image-3" />
+      <img data-src="img-4.jpg" alt="Image-4" />
+      <img data-src="img-5.jpg" alt="Image-5" />
+    </div>
+
+    <button id="loadImagesBtn">Завантажити зображення вручну</button>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
