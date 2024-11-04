@@ -1,28 +1,15 @@
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
-
-.image-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 img {
-    height: 200px;
-    background-color: #f0f0f0;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-img.loaded {
-    opacity: 1;
-}
-
-#loadImagesBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
+    height: 500px; /* Мінімальна висота */
+    background-color: #f0f0f0; /* Фоновий колір */
+    display: block;
+    width: 1000px;
+    transition: opacity 0.5s ease; /* Анімація при завантаженні */
+    opacity: 0; 
+    margin-top: 300px;
+  }
+  img.loaded {
+    opacity: 1; /* Зображення повністю видиме після завантаження */
+  }
+  .image-container {
+    margin: 20px 0;
+  }

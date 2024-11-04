@@ -1,27 +1,32 @@
-function preloadImage(img) {
-  const src = img.getAttribute("data-src");
-  if (!src) return;
+// Функція для лінивого завантаження зображень
+document.addEventListener("DOMContentLoaded", () => {
+  const lazyImages = document.querySelectorAll("img.lazy-load");
 
-  img.src = src;
-  img.onload = () => {
-    img.classList.add("loaded");
-  };
-}
-
-const imgObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      preloadImage(entry.target);
-      observer.unobserve(entry.target);
-    }
+  // Створюємо IntersectionObserver
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src; // Встановлюємо значення src з data-src
+              img.onload = () => img.classList.add("loaded"); // Додаємо клас для анімації після завантаження
+              observer.unobserve(img); // Перестаємо спостерігати за зображенням
+          }
+      });
+  }, {
+      rootMargin: "50px", // Можна налаштувати відступи завчасного завантаження
+      threshold: 0.1
   });
-});
 
-const images = document.querySelectorAll("img[data-src]");
-images.forEach((img) => {
-  imgObserver.observe(img);
-});
+  // Спостерігаємо за кожним зображенням з атрибутом data-src
+  lazyImages.forEach(img => observer.observe(img));
 
-document.getElementById("loadImagesBtn").addEventListener("click", () => {
-  images.forEach((img) => preloadImage(img));
+  // Завантаження зображень при натисканні на кнопку
+  document.getElementById("loadImages").addEventListener("click", () => {
+      lazyImages.forEach(img => {
+          if (!img.src) {
+              img.src = img.dataset.src;
+              img.classList.add("loaded");
+          }
+      });
+  });
 });
