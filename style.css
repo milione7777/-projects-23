@@ -1,14 +1,14 @@
 img {
-    height: 500px; /* Мінімальна висота */
-    background-color: #f0f0f0; /* Фоновий колір */
+    height: 500px; 
+    background-color: #f0f0f0; 
     display: block;
     width: 1000px;
-    transition: opacity 0.5s ease; /* Анімація при завантаженні */
+    transition: opacity 0.5s ease; 
     opacity: 0; 
     margin-top: 300px;
   }
   img.loaded {
-    opacity: 1; /* Зображення повністю видиме після завантаження */
+    opacity: 1; 
   }
   .image-container {
     margin: 20px 0;
